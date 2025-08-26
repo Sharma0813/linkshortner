@@ -1,26 +1,127 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ----- GENERAL CLASSES ----- */
+.deleteOptions {
+  color: #f00;
+  font-size: 18px;
+}
+.inActive {
+  color: #9074d3;
+  font-size: 18px;
+}
+.editOptions {
+  color: #36c6d5;
+  font-size: 18px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@media (max-width: 1200px) {
+  .deleteOptions,
+  .inActive,
+  .editOptions {
+    font-size: 15px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ----- SECTION HEIGHTS ----- */
+.headerDiv {
+  height: auto;
+  min-height: 10vh;
+}
+.linkDiv {
+  min-height: 9vh;
+}
+.liveCard {
+  min-height: 75vh;
+}
+
+@media (max-width: 1200px) {
+  .headerDiv {
+    height: auto;
+  }
+  .linkDiv {
+    min-height: 11vh;
+  }
+  .liveCard {
+    min-height: 85vh;
+  }
+}
+
+/* ----- QR CODE SECTION ----- */
+.qrcode__container {
+  @apply flex flex-col items-center justify-center w-full h-screen;
+}
+
+.qrcode__container--parent {
+  @apply flex items-center justify-center gap-3 w-full;
+}
+
+.qrcode__input {
+  @apply flex flex-col items-center w-1/3 mt-5;
+}
+
+.qrcode__input input {
+  @apply w-full px-4 py-2 text-sm rounded border border-gray-300 mb-4 outline-none;
+}
+
+.qrcode__input button,
+.qrcode__download button {
+  @apply px-4 py-2 rounded font-medium transition cursor-pointer text-sm;
+}
+
+.qrcode__download {
+  @apply flex flex-col items-center gap-3 mt-10;
+}
+
+/* ----- BACKGROUND ----- */
+.backggroundColor {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  height: 100vh;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ----- CIRCLE DESIGN (optional UI badge) ----- */
+.circle {
+  @apply inline-block bg-cyan-100 mx-2 my-2 rounded-full;
+}
+
+.circle-inner {
+  @apply text-center text-cyan-600 align-middle table-cell h-[100px] w-[100px] text-[34px];
+}
+
+/* ----- USERNAME (profile text style) ----- */
+.userName {
+  @apply text-white text-[20px] font-semibold mb-[20%] font-sans;
+}
+
+/* ----- Additional Responsiveness (Mobile Layout Tweaks) ----- */
+@media (max-width: 768px) {
+  .headerDiv,
+  .linkDiv {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .qrcode__input {
+    width: 90%;
+  }
 }

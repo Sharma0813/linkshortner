@@ -1,0 +1,21 @@
+Linkshortner-
+
+npx create-next-app linkshortner
+
+✔ Would you like to use TypeScript with this project? … No
+✔ Would you like to use ESLint with this project? … Yes
+✔ Would you like to use Tailwind CSS with this project? … Yes
+✔ Would you like to use `src/` directory with this project? … Yes
+✔ Use App Router (recommended)? … No
+✔ Would you like to customize the default import alias? … No
+
+
+npm install framer-motion
+npm install react-qr-code
+npm install html-to-image
+npm install @mui/material @emotion/styled @emotion/react @mui/icons-material
+npm install mongoose 
+npm install react-hot-toast
+npm install lucide-react
+
+
